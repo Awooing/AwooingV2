@@ -31,6 +31,16 @@
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 
+// css
+import './assets/css/argon.css';
+import './assets/css/awoo.css';
+import './assets/css/fonts.css';
+
+// js
+import 'jquery';
+import 'sweetalert2';
+import 'flatpickr';
+
 export default {
   name: 'App',
   components: {

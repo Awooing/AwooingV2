@@ -9,6 +9,7 @@
 
 <script>
     import axios from 'axios'
+    import topbar from "topbar";
     export default {
         name: 'AwooPics',
         data() {
@@ -17,8 +18,11 @@
             }
         },
         mounted() {
+            topbar.config({barColors: {0:"#281483", .3:"#8f6ed5", 1.0:"#d782d9"}})
+            topbar.show()
             axios.get('http://localhost:4000/api/v1/awoo')
                 .then(res => (this.response = res.data))
+                .then(topbar.hide)
         }
     }
 </script>
