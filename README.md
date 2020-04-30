@@ -1,4 +1,5 @@
 # vue-awoo
+if someone asks, i didn't write this readme, it's a default one.
 
 ## Project setup
 ```
