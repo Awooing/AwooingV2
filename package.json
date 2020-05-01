@@ -1,5 +1,5 @@
 {
-  "name": "awooing.moe",
+  "name": "vue-awoo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,13 +11,9 @@
     "@creative-tim-official/argon-dashboard-free": "^1.1.0",
     "@popperjs/core": "^2.4.0",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.13.0",
     "core-js": "^3.6.4",
     "flatpickr": "^4.6.3",
-    "jquery": "^3.4.1",
-    "lodash": "^4.17.15",
-    "pify": "^5.0.0",
     "sweetalert2": "^9.10.12",
     "topbar": "^0.1.4",
     "vue": "^2.6.11",
