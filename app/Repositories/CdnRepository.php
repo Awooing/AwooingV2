@@ -10,9 +10,20 @@ class CdnRepository
     /** @var \SpacesConnect */
     private $cdn;
 
-    public function __construct()
+    private $test;
+
+    public function __construct(string $accessKey, string $secretKey, string  $spaceName, string $region)
     {
-        // check excluded.md
+        $this->cdn = new \SpacesConnect($accessKey, $secretKey, $spaceName, $region);
+        $this->test = $secretKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTest(): string
+    {
+        return $this->test;
     }
 
     /**
