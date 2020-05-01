@@ -4,9 +4,9 @@ import AwooPics from "@/components/pages/AwooPics"
 import Council from "@/components/pages/Council"
 import News from "@/components/pages/News"
 import Home from "@/components/pages/Home"
+import Article from "@/components/pages/Article";
 
 Vue.use(VueRouter)
-
 export default new VueRouter({
     routes: [
         {
@@ -15,9 +15,18 @@ export default new VueRouter({
             component: Home
         },
         {
-            path: '/News',
+            path: '/news/:page',
             name: 'News',
-            component: News
+            component: News,
+        },
+        {
+            path: '/news',
+            redirect: '/news/1'
+        },
+        {
+            path: '/article/:id',
+            name: 'Article',
+            component: Article
         },
         {
             path: '/awoo/random',
