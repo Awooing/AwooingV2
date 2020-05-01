@@ -29,9 +29,9 @@
         mounted() {
             topbar.config({barColors: {0:"#281483", .3:"#8f6ed5", 1.0:"#d782d9"}})
             topbar.show()
-            axios.get('http://localhost:4000/api/v1/news?strip=true&truncate=200')
-                .then(res => (this.news = res.data))
-                .then(topbar.hide)
+            axios.get('https://awooing.moe/api/v1/news?strip=true&truncate=200')
+                .then(res => (this.news = res.data.news))
+                .then(topbar.hide())
         }
     }
 </script>
