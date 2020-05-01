@@ -1,0 +1,25 @@
+parameters:
+
+
+database:
+	dsn: 'mysql:host=dbhost;dbname=dbname'
+	user: dbuser
+	password: dbpass
+
+services:
+    userRepo: App\Repositories\UserRepository
+    councilRepo: App\Repositories\CouncilRepository
+    newsRepo: App\Repositories\NewsRepository
+    userActions: Awoo\Actions\UserActions
+    councilActions: Awoo\Actions\CouncilActions
+    newsActions: Awoo\Actions\NewsActions
+    cdnRepo: Awoo\Models\CdnRepository(
+        accessKey: accessKey,
+        secretKey: secretKey,
+        spaceName: spaceName,
+        region: reg
+    )
+    discordRepo: Awoo\Models\DiscordRepository(botToken: botToken)
+    actions: Awoo\Actions\Actions
+    authenticator: Awoo\Auth\Authentication
+
