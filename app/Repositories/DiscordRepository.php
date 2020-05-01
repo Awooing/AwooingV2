@@ -12,9 +12,9 @@ class DiscordRepository
 
     private $token;
 
-    public function __construct()
+    public function __construct(string $botToken)
     {
-        // view excluded.md
+        $this->token = $botToken;
     }
 
     /**
