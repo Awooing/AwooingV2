@@ -58,10 +58,19 @@ class DefaultPresenter extends BasePresenter
         }
     }
 
-    public function actionNews($page=1, string $strip="false", string $truncate="0"): void
+    public function actionNews($page=1, string $strip="false", string $truncate="0", string $pageInfo="false"): void
     {
         if ($this->request->isMethod('GET')) {
-            $this->actions->getNewsActions()->actionNewsGet($this->getHttpRequest(), $this, $page, (bool)$strip, (int)$truncate);
+            $this->actions->getNewsActions()->actionNewsGet($this->getHttpRequest(), $this, $page, ($strip === "true"), (int)$truncate, ($pageInfo === "true"));
+        } else {
+            $this->error("method not supported", 400);
+        }
+    }
+
+    public function actionArticle($id=null): void
+    {
+        if ($this->request->isMethod('GET')) {
+            $this->actions->getNewsActions()->actionArticleGet($this->getHttpRequest(), $this, $id);
         } else {
             $this->error("method not supported", 400);
         }

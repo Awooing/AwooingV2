@@ -12,6 +12,7 @@ use Awoo\Entities\User;
 use Awoo\Misc\Helper;
 use Awoo\Models\DiscordRepository;
 use Nette\Http\IRequest;
+use Nette\Security\Passwords;
 use Nette\Utils\DateTime;
 
 class NewsActions
@@ -33,12 +34,12 @@ class NewsActions
         $this->userRepo = $usr;
     }
 
-    public function actionNewsGet(IRequest $req, BasePresenter $p, $page, $strip=false, $truncate=0)
+    public function actionNewsGet(IRequest $req, BasePresenter $p, $page, $strip=false, $truncate=0, $pageInfo=false)
     {
         $news = $this->newsRepo->getArticles();
         $lastPage = 0;
         $articles = $news->page((int)$page, 3, $lastPage);
-        $result = array();
+        $ar_articles = array();
         foreach ($articles as $article) {
             $a = $article->toArray();
             if ($strip) {
@@ -62,9 +63,27 @@ class NewsActions
             /** @var DateTime $date */
             $date = $a['created_at'];
             $a['created_at'] = $date->format("d/m/Y");
-            array_push($result, $a);
+            array_push($ar_articles, $a);
+        }
+        $result = ["news"=>$ar_articles];
+        if ($pageInfo) {
+          $result = [
+              "news"=>$ar_articles,
+              "pageInfo"=>[
+                  "current"=>$page,
+                  "last"=>$lastPage
+              ]
+          ];
         }
         $p->sendPrettyJson($result);
+    }
+
+    public function actionArticleGet(IRequest $req, BasePresenter $p, $id): void
+    {
+        if (!$id) { $p->error("no id specified", 404); }
+        $article = $this->newsRepo->getArticleById($id);
+        if (!$article->getRow()) { $p->error("article doesn't exist", 404); }
+        $p->sendPrettyJson($article->getRow()->toArray());
     }
 
 }
