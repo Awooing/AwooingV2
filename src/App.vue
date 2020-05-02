@@ -35,10 +35,12 @@ export default {
     };
   },
   mounted(){
+    document.title = this.$route.name;
     this.title = this.$route.name;
   },
   watch:{
     $route (to) {
+      document.title = to.name;
       this.title = to.name;
     }
   } 
