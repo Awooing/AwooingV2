@@ -1,10 +1,12 @@
 <template>
     <div>
         <div class="container">
-            <div class="awoo-wrapper" v-for="article in this.data.news" :key="article.id">
-                <a class="title-link ajax" href="#">{{article.title}}</a>
-                <h4 style="font-size: 1rem;font-weight: 300;color: var(--gray);margin: 0">By {{article.author_info.showName}} &ndash; {{article.created_at}}</h4>
-                <span v-html="article.content"></span> <a style="border-radius: 2rem;margin-top: 4px" class="btn btn-primary float-right ajax" href="">See more</a>
+            <div v-if="this.data !== null">
+                <div class="awoo-wrapper" v-for="article in this.data.news" :key="article.id">
+                    <a class="title-link ajax" href="#">{{article.title}}</a>
+                    <h4 style="font-size: 1rem;font-weight: 300;color: var(--gray);margin: 0">By {{article.author_info.showName}} &ndash; {{article.created_at}}</h4>
+                    <span v-html="article.content"></span> <a style="border-radius: 2rem;margin-top: 4px" class="btn btn-primary float-right ajax" href="">See more</a>
+                </div>
             </div>
 
             <!-- TODO: make this work -->
