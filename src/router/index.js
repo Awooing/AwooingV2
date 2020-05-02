@@ -8,6 +8,7 @@ import Article from "@/components/pages/Article";
 
 Vue.use(VueRouter)
 export default new VueRouter({
+    mode: "history",
     routes: [
         {
             path: '/',
@@ -26,6 +27,7 @@ export default new VueRouter({
         {
             path: '/article/:id',
             name: 'Article',
+            props: true,
             component: Article
         },
         {
