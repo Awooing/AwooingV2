@@ -25,11 +25,9 @@
             title: String
         },
         mounted() {
-            document.title = this.title + " – Awooing.moe";
+            if (this.title !== "Article") {
+                document.title = this.title + " – Awooing.moe";
+            }
         }
     }
 </script>
-
-<style scoped>
-
-</style>

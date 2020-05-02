@@ -12,7 +12,7 @@
                     <a class="title-link ajax" href="#">{{article.title}}</a>
                     <h4 style="font-size: 1rem;font-weight: 300;color: var(--gray);margin: 0">By {{article.author_info.showName}} &ndash; {{article.created_at}}</h4>
 
-                    <span v-html="article.content"></span> <a style="border-radius: 2rem;margin-top: 4px" class="btn btn-primary float-right ajax" href="#">See more</a>
+                    <span v-html="article.content"></span> <router-link :to="'/article/' + article.id" style="border-radius: 1rem;margin-top: 4px" class="btn btn-primary float-right ajax"></router-link>
                 </div>
             </div>
         </div>

@@ -35,12 +35,16 @@ export default {
     };
   },
   mounted(){
-    document.title = this.$route.name;
+    if (this.$route.name !== "Article") {
+      document.title = this.$route.name + " – Awooing.moe"
+    }
     this.title = this.$route.name;
   },
   watch:{
     $route (to) {
-      document.title = to.name;
+      if (to.name !== "Article") {
+        document.title = to.name + " – Awooing.moe"
+      }
       this.title = to.name;
     }
   } 
