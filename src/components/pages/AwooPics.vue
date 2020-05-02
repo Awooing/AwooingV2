@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header :title="this.title"/>
+        <!-- <Header :title="this.title"/> -->
         <div class="container">
             <div class="awoo-wrapper" style="text-align-last: center;">
                 <p>Every time you refresh the page or click on the image <br> you'll see a new 
@@ -16,10 +16,8 @@
 <script>
     import axios from 'axios'
     import topbar from "topbar";
-    import Header from "@/components/Header";
     export default {
         name: 'AwooPics',
-        components: {Header},
         data() {
             return {
                 title: "Awoo Pics",
@@ -27,6 +25,7 @@
             }
         },
         mounted() {
+            this.$emit('event_parent', "Awoo Pics")
             topbar.config({barColors: {0:"#281483", .3:"#8f6ed5", 1.0:"#d782d9"}})
             this.loadImage()
         },

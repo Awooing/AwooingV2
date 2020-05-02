@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header :title="this.title"/>
         <div class="container">
             <div class="awoo-wrapper" v-for="article in this.data.news" :key="article.id">
                 <a class="title-link ajax" href="#">{{article.title}}</a>
@@ -22,11 +21,8 @@
 <script>
     import topbar from "topbar";
     import axios from "axios";
-    import Header from "@/components/Header";
-
     export default {
         name: 'News',
-        components: {Header},
         data() {
             return {
                 title: "News",
@@ -38,7 +34,7 @@
             topbar.show()
             axios.get('https://awooing.moe/api/v1/news?page=' + this.$route.params.page + '&strip=true&truncate=200&pageInfo=true')
                 .then(res => (this.data = res.data))
-                .then(topbar.hide)
+                .then(topbar.hide())
         }
     }
 </script>
