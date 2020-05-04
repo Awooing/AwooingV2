@@ -31,3 +31,10 @@
         }
     }
 </script>
+
+<style>
+    .modal-backdrop {
+        transition: all 0.18s ease-in-out;
+        background: rgba(0,0,0,0.3);
+    }
+</style>
