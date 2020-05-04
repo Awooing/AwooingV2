@@ -48,10 +48,10 @@
                     <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                         <li class="nav-item">
                             <!-- TODO: check for login -->
-                            <div class="dropdown">
+                            <!--<div class="dropdown">
                                 <button class="btn btn-neutral dropdown-toggle"  style="text-transform: unset" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <!-- TODO: Functionality, check for role -->
+                              //  todo: check for roles
                                     <span style="font-size: 14px;color: white;padding: 4px;background: var(--red);border-radius: 4px;margin-right: 6px;text-transform: capitalize">Council</span> User
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -60,14 +60,12 @@
                                     {if $user->isAllowed("admin", "view")}<a class="dropdown-item ajax" n:href="Admin:default">Admin Panel</a>{/if}
                                     <a class="dropdown-item ajax" n:href="Auth:logout">Logout</a>
                                 </div>
-                            </div>
-                            <!-- TODO: check for login - else
-                            <a href="#" data-toggle="modal" data-target="#modal-form"
-                               class="btn btn-neutral btn-ico">
-                                <span class="btn-inner--icon"><i class="fas fa-lock"></i></span><span
-                                    class="nav-link-inner--text"> Login</span>
+                            </div>-->
+
+                            <a href="#" v-b-modal.login-modal class="btn btn-neutral btn-ico">
+                                <span class="btn-inner--icon"><i class="fas fa-lock"></i></span><span class="nav-link-inner--text"> Login</span>
                             </a>
-                            -->
+                            <LoginModal/>
                         </li>
                     </ul>
                 </div>
@@ -77,7 +75,9 @@
 </template>
 
 <script>
+    import LoginModal from "./LoginModal";
     export default {
-        name: 'Navigation'
+        name: 'Navigation',
+        components: {LoginModal}
     }
 </script>
